@@ -1,0 +1,6 @@
+org\example\StepDefinition\Hooks.class
+org\example\Pages\P01_Login_Page.class
+org\example\StepDefinition\D02_Add_New_Customer_StepDef.class
+org\example\Runner\Runner.class
+org\example\StepDefinition\D01_Login_StepDef.class
+org\example\Pages\P02_Add_New_Customer_Page.class

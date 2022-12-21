@@ -4,7 +4,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.example.Pages.P01_Login_Page;
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import java.util.concurrent.TimeUnit;
 import static org.example.StepDefinition.Hooks.driver;
@@ -24,9 +23,9 @@ public class D01_Login_StepDef {
         driver.findElement(p.getPassword()).sendKeys(pass);
     }
     @And("User click Login")
-    public void click_login() throws InterruptedException {
+    public void click_login()
+    {
         driver.findElement(p.getLogin_button()).click();
-        Thread.sleep(6000);
         driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
 
     }
@@ -37,7 +36,6 @@ public class D01_Login_StepDef {
         String actual=driver.findElement(p.getLogin_message()).getText();
         String expected="Manger Id : mngr456686";
         soft.assertTrue(actual.contains(expected),"User couldn't login");
-//        Assert.assertTrue(actual.contains(expected),"User couldn't login");
     }
     @And("User enter invalid user{string} and valid password{string}")
     public void invalidUser(String user,String pass)
@@ -52,7 +50,6 @@ public class D01_Login_StepDef {
         String actual=driver.switchTo().alert().getText();
         String expected="User or Password is not valid";
         soft.assertTrue(actual.contains(expected));
-//        Assert.assertTrue(actual.contains(expected));
     }
     @And("User enter valid user{string} and invalid password{string}")
     public void invalidPass(String user,String pass)

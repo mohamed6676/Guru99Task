@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="7" time="275.844">
+    <testcase classname="Login Functionality" name="User could login with valid credentials" time="48.882">
+        <system-out><![CDATA[Given User navigated to home page...........................................passed
+And User enter valid user"mngr464465" and password"ypuzupa".................passed
+And User click Login........................................................passed
+Then User could login successfully..........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login Functionality" name="User could not login with invalid user and valid password" time="32.837">
+        <system-out><![CDATA[Given User navigated to home page...........................................passed
+And User enter invalid user"dfd" and valid password"ypuzupa"................passed
+And User click Login........................................................passed
+Then User could not login...................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login Functionality" name="User could not login with invalid password and valid user" time="43.496">
+        <system-out><![CDATA[Given User navigated to home page...........................................passed
+And User enter valid user"mngr464465" and invalid password"fdfd"............passed
+And User click Login........................................................passed
+Then User could not login...................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Adding new Customer Functionality" name="Adding new Customer with valid data" time="28.184">
+        <system-out><![CDATA[Given User navigated to home page...........................................passed
+And User enter valid user"mngr464465" and password"ypuzupa".................passed
+And User click Login........................................................passed
+Then User could login successfully..........................................passed
+Given user navigated to add customer page...................................passed
+And enter valid customer name"moh", gender"m", date of birth"03032011" ,enter address"cairo", city"cairo", enter state"Egypt", enter pin"001098", enter mobile number"0133332".passed
+And enter email"mngr456686",enter password"vYmUpem".........................passed
+And click submit............................................................passed
+Then new customer is added..................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Adding new Customer Functionality" name="Adding new Customer leaving name field empty" time="36.893">
+        <system-out><![CDATA[Given User navigated to home page...........................................passed
+And User enter valid user"mngr464465" and password"ypuzupa".................passed
+And User click Login........................................................passed
+Then User could login successfully..........................................passed
+Given user navigated to add customer page...................................passed
+And enter valid customer name"", gender"f", date of birth"03032011" ,enter address"cairo", city"cairo", enter state"Egypt", enter pin"001", enter mobile number"0133332".passed
+And enter email"mngr456686",enter password"vYmUpem".........................passed
+Then message telling blank name is not allowed..............................passed
+And click submit............................................................passed
+Then new customer is not added..............................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Adding new Customer Functionality" name="Adding new Customer leaving address field empty" time="41.659">
+        <system-out><![CDATA[Given User navigated to home page...........................................passed
+And User enter valid user"mngr464465" and password"ypuzupa".................passed
+And User click Login........................................................passed
+Then User could login successfully..........................................passed
+Given user navigated to add customer page...................................passed
+And enter valid customer name"moh", gender"m", date of birth"03032011" ,enter address"", city"cairo", enter state"Egypt", enter pin"001", enter mobile number"0133332".passed
+And enter email"mngr456686",enter password"vYmUpem".........................passed
+Then message telling blank address is not allowed...........................passed
+And click submit............................................................passed
+Then new customer is added..................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Adding new Customer Functionality" name="Adding new Customeer entering pin less than 6 digits" time="43.161">
+        <system-out><![CDATA[Given User navigated to home page...........................................passed
+And User enter valid user"mngr464465" and password"ypuzupa".................passed
+And User click Login........................................................passed
+Then User could login successfully..........................................passed
+Given user navigated to add customer page...................................passed
+And enter valid customer name"moh", gender"m", date of birth"03032011" ,enter address"cairo", city"cairo", enter state"Egypt", enter pin"001", enter mobile number"0133332".passed
+And enter email"mngr456686",enter password"vYmUpem".........................passed
+Then message telling PIN must be 6 digits...................................passed
+And click submit............................................................passed
+Then new customer is added..................................................passed
+]]></system-out>
+    </testcase>
+</testsuite>

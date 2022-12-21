@@ -12,25 +12,15 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
     public static WebDriver driver;
-
     @Before
     public void openBrowser()
     {
-//        WebDriverManager.chromedriver().setup();
-        String path=System.getProperty("user.dir");
-        Map<String,Object>prefs=new HashMap<String,Object>();
-        prefs.put("download.default_directory",path+"\\src\\main\\resources");
         ChromeOptions option=new ChromeOptions();
-        option.setExperimentalOption("prefs",prefs);
-        option.setExperimentalOption("excludeSwitches",Arrays.asList("disable-popup-blocking"));
         option.addExtensions(new File("app.crx"));
         driver= new ChromeDriver(option);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(8,TimeUnit.SECONDS);
         ArrayList<String> tab=new ArrayList<>(driver.getWindowHandles());
-//        do
-//        {
-
         driver.switchTo().window(tab.get(0));
         String main=driver.getWindowHandle();
         for(String child:tab)
@@ -42,10 +32,7 @@ public class Hooks {
             }
         }
         driver.switchTo().window(main);
-//        }
-//        while (tab.size()>1);
         driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
-
     }
     @After
     public static void closeBrowser()

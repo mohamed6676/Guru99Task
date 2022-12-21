@@ -97,11 +97,13 @@ public class P02_Add_New_Customer_Page {
     private static final By msgBlankAddress=By.id("message3");
     public By getMsgBlankAddress()
     {
+
         return msgBlankAddress;
     }
     private static final By msgInvalidPin=By.id("message6");
     public By getMsgInvalidPin()
     {
+
         return msgInvalidPin;
     }
 
