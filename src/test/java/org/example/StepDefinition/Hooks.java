@@ -3,7 +3,6 @@ package org.example.StepDefinition;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,9 +14,9 @@ public class Hooks {
     public static WebDriver driver;
 
     @Before
-    public static void openBrowser()
+    public void openBrowser()
     {
-        WebDriverManager.chromedriver().setup();
+//        WebDriverManager.chromedriver().setup();
         String path=System.getProperty("user.dir");
         Map<String,Object>prefs=new HashMap<String,Object>();
         prefs.put("download.default_directory",path+"\\src\\main\\resources");
@@ -25,11 +24,13 @@ public class Hooks {
         option.setExperimentalOption("prefs",prefs);
         option.setExperimentalOption("excludeSwitches",Arrays.asList("disable-popup-blocking"));
         option.addExtensions(new File("app.crx"));
-        driver=new ChromeDriver();
+        driver= new ChromeDriver(option);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(4,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(8,TimeUnit.SECONDS);
         ArrayList<String> tab=new ArrayList<>(driver.getWindowHandles());
+//        do
+//        {
+
         driver.switchTo().window(tab.get(0));
         String main=driver.getWindowHandle();
         for(String child:tab)
@@ -41,6 +42,8 @@ public class Hooks {
             }
         }
         driver.switchTo().window(main);
+//        }
+//        while (tab.size()>1);
         driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
 
     }

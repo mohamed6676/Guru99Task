@@ -2,7 +2,7 @@
   Feature: Adding new Customer Functionality
     Background: User previously logged in
       Given User navigated to home page
-      And User enter valid user"mngr456686" and password"vYmUpem"
+      And User enter valid user"mngr464465" and password"ypuzupa"
       And User click Login
       Then User could login successfully
 
